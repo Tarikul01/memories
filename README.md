@@ -2,3 +2,9 @@
 1. Creat folder Structure
 2. Setup materialUi. JWT-decode ,axios,moment js
 3. Complete all  Backend setup insdie the server.js file
+
+#Second section
+
+1. Add Style in Styles.js for every folder just like Form , Posts, Post
+2. Then add them inside the  Every app and form folder
+3. Every Styles.js folder we export default  Style function from  MakeStyle from 'MUI/material ui.
