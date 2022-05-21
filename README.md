@@ -8,3 +8,4 @@
 1. Add Style in Styles.js for every folder just like Form , Posts, Post
 2. Then add them inside the  Every app and form folder
 3. Every Styles.js folder we export default  Style function from  MakeStyle from 'MUI/material ui.
+4. Create api folder and export a function from here and gets data from posts routes
