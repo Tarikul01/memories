@@ -9,3 +9,8 @@
 2. Then add them inside the  Every app and form folder
 3. Every Styles.js folder we export default  Style function from  MakeStyle from 'MUI/material ui.
 4. Create api folder and export a function from here and gets data from posts routes
+
+# 2nd step
+ 
+1. Add redux react-redux redux-thunk
+2. Add folde inside the src in clinet action and reducer 
