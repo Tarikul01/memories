@@ -14,3 +14,5 @@
  
 1. Add redux react-redux redux-thunk
 2. Add folde inside the src in clinet action and reducer 
+3. Complete all api create
+4. Declared a useState inside the app folder for handle update post
