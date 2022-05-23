@@ -2,7 +2,7 @@ import PostMessage from '../models/postMessage.js';
 
 export const getPosts=async (req,res)=>{
     try {
-        const postMessage=await postMessage.find();
+        const postMessage=await PostMessage.find();
         res.status(200).json(postMessage);
         
     } catch (err) {
@@ -25,4 +25,7 @@ export  const createPosts=async(req,res)=>{
         
     }
     
+}
+export  const updatePost=async (req,res)=>{
+
 }
