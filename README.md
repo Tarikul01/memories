@@ -21,3 +21,9 @@
 
 1. First create updatePost api
 2. Second connect api inside the Client and Update the redux store
+
+# 4th User delete post
+
+1. Create Delete api inside the Server side
+2. Fetch api inside the  client side
+3. Dispatch action inside the redux 
