@@ -16,3 +16,8 @@
 2. Add folde inside the src in clinet action and reducer 
 3. Complete all api create
 4. Declared a useState inside the app folder for handle update post
+
+# 3rd User update post
+
+1. First create updatePost api
+2. Second connect api inside the Client and Update the redux store
