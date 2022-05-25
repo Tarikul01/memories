@@ -27,3 +27,8 @@
 1. Create Delete api inside the Server side
 2. Fetch api inside the  client side
 3. Dispatch action inside the redux 
+
+# 5th Add like
+
+1. Firt need create  countLike api
+2. Then fetch api inside the Client side and create Actions.
