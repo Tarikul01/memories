@@ -32,3 +32,8 @@
 
 1. Firt need create  countLike api
 2. Then fetch api inside the Client side and create Actions.
+
+
+
+# Now add the Navbar for Login and Registration
+
