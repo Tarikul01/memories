@@ -37,3 +37,6 @@
 
 # Now add the Navbar for Login and Registration
 
+1. Install react-router-dom for set routes
+2. Create Auth file for create Sign In and Sign Up form
+3. Fully complete All event and Create Input.js file for control Input files
