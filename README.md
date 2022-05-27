@@ -40,3 +40,4 @@
 1. Install react-router-dom for set routes
 2. Create Auth file for create Sign In and Sign Up form
 3. Fully complete All event and Create Input.js file for control Input files
+4. Add google signIn option and Create Crediansial inside the google console/google developer site
