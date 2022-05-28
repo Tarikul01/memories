@@ -48,3 +48,5 @@
 1. When sign in then set google data store in localstorage
 2. getLocalStorage data use useEffect then Check Login or not
 3. Logout button Click Remove setUser data and dispatch LGOUT action
+4. Then start form Handle
+5. Handle submit handle Whenuser submit a form for login or registration
