@@ -18,11 +18,21 @@ import useStyles from './Styles';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
+
+const initialState={
+	firstName:'',
+	lastName:'',
+	email:'',
+	password:'',
+	confirmPassword:''
+}
+
 const Auth = () => {
 	const classes = useStyles();
 
 	// useDispatch react-redux hooks 
 	const dispatch=useDispatch();
+	const location=useLocation();
 
 	// useHistory react-router-dom hooks for site redirection
 	const navigate= useNavigate();
@@ -30,11 +40,19 @@ const Auth = () => {
      
 	const [showPassword, setShowPassword] = useState(false);
 	const [isSignup, setIsSignup] = useState(false);
+	const [formData,setFormData]=useState(initialState);
 
 
 
-	const handleSubmit = () => {};
-	const handleChange = () => {};
+	const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData)
+
+	};
+	const handleChange = (e) => {
+		e.preventDefault();
+		setFormData({...formData,[e.target.name]:e.target.value});
+	};
 	const handleShowPassword = () => setShowPassword(!showPassword);
 
 
@@ -56,7 +74,7 @@ const Auth = () => {
 		}
 	
 		gapi.load('client:auth2', start);
-	  }, []);
+	  },[location]);
 
 
 	// If  Google Loginin Successfully 
