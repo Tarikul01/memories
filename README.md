@@ -41,3 +41,10 @@
 2. Create Auth file for create Sign In and Sign Up form
 3. Fully complete All event and Create Input.js file for control Input files
 4. Add google signIn option and Create Crediansial inside the google console/google developer site
+
+
+# Login Section 
+
+1. When sign in then set google data store in localstorage
+2. getLocalStorage data use useEffect then Check Login or not
+3. Logout button Click Remove setUser data and dispatch LGOUT action

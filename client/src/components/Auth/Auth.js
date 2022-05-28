@@ -4,26 +4,40 @@ import {
 	Container,
 	Grid,
 	Paper,
-	Typography,
+	Typography
 } from '@material-ui/core';
 import { LockOutlined } from '@material-ui/icons';
+import { gapi } from 'gapi-script';
 import React, { useEffect, useState } from 'react';
 import GoogleLogin from 'react-google-login';
+import { useDispatch } from 'react-redux';
 // import AuthPage from './AuthPage';
 import Icon from './Icon';
 import Input from './input';
 import useStyles from './Styles';
-import { gapi } from 'gapi-script';
-import {useDispatch} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
 	const classes = useStyles();
+
+	// useDispatch react-redux hooks 
 	const dispatch=useDispatch();
+
+	// useHistory react-router-dom hooks for site redirection
+	const navigate= useNavigate();
+
+     
 	const [showPassword, setShowPassword] = useState(false);
 	const [isSignup, setIsSignup] = useState(false);
+
+
+
 	const handleSubmit = () => {};
 	const handleChange = () => {};
 	const handleShowPassword = () => setShowPassword(!showPassword);
+
+
+	// password show or not and User profile or Sign In Button hook 
 	const switchMode = () => {
 		setIsSignup(!isSignup);
 		handleShowPassword(false);
@@ -44,12 +58,16 @@ const Auth = () => {
 	  }, []);
 
 
-	//   Google Loginin Successfully 
+	// If  Google Loginin Successfully 
 	const googleSucces = async (res) => {
 		const result=res?.profileObj;
 		const token=res?.tokenId;
 		try {
 			dispatch({type:'AUTH',data:{result,token}})
+
+
+			// set Redirect for sign in user  use History hooks 
+			navigate('/')
 			
 		} catch (err) {
 			console.log(err)
@@ -57,7 +75,7 @@ const Auth = () => {
 		}
 	};
 
-	// Google SignIn failed 
+	//IF Google SignIn failed 
 	const googleFailure = (error) => {
 		console.log(error)
 		console.log('Google Sign In was unsuccessfull. Try Again Letter');
