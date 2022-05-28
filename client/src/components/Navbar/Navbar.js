@@ -1,6 +1,6 @@
 import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import memories from '../../images/memories.jpg';
 import useStyles from './style';
 import { useDispatch } from 'react-redux';
@@ -11,6 +11,8 @@ const Navbar = () => {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
 	const dispatch=useDispatch();
 	const navigate=useNavigate();
+	
+	const location=useLocation();
 
 
 	// Logout   function 
@@ -26,12 +28,12 @@ const Navbar = () => {
 
 
 	// useEffect for handle User login or  Store data in localStorage 
-	// useEffect(() => {
-	// 	const token= user?.token;
-    //     //   JWT......
+	useEffect(() => {
+		const token= user?.token;
+        //   JWT......
 
-	// 	setUser(JSON.parse(localStorage.getItem('profile')));
-	// }, [user]);
+		setUser(JSON.parse(localStorage.getItem('profile')));
+	}, [location,user]);
 	return (
 		<AppBar className={classes.appBar} position='static' color='inherit'>
 			<div className={classes.brandContainer}>

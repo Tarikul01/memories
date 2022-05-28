@@ -16,6 +16,7 @@ import Icon from './Icon';
 import Input from './input';
 import useStyles from './Styles';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Auth = () => {
 	const classes = useStyles();
@@ -156,7 +157,8 @@ const Auth = () => {
 						onSuccess={googleSucces}
 						onFailure={googleFailure}
 						cookiePolicy={'single_host_origin'}
-						isSignedIn={true}
+						// isSignedIn={true}
+						isTrusted= {true}
 					/>
 				
 					<Grid container justifyContent='flex-end'>
