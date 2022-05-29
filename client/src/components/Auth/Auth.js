@@ -17,6 +17,7 @@ import Input from './input';
 import useStyles from './Styles';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import {signup,signin} from '../../actions/auth';
 
 
 const initialState={
@@ -46,6 +47,11 @@ const Auth = () => {
 
 	const handleSubmit = (e) => {
     e.preventDefault();
+	if(isSignup){
+		dispatch(signup(formData,navigate));
+	}else{
+		dispatch(signin(formData,navigate))
+	}
     console.log(formData)
 
 	};

@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import postRoutes from './routes/posts.js'
+import userRoutes from './routes/users.js'
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -19,6 +20,8 @@ app.use(express.json());
 // External middleware 
 
 app.use('/posts',postRoutes);
+
+app.use('/users',userRoutes)
 
 // Database connection
 mongoose
