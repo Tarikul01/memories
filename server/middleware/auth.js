@@ -1,4 +1,8 @@
-import jwt ,{decode} from 'jsonwebtoken';
+import {decode} from 'jsonwebtoken';
+
+// want to like a post
+// click the like button =>auth middleware(next)
+// like controller 
 
 const auth=async(req,res,next)=>{
     try {
@@ -6,10 +10,10 @@ const auth=async(req,res,next)=>{
         const isCustomAuth=token.length<500;
         let decodeData;
         if(token && isCustomAuth){
-            decodeData=jwt.decode(token);
+            decodeData=decode(token);
             req.userId=decodeData?.id;
         }else{
-            decodeData=jwt.decode(token);
+            decodeData=decode(token);
             req.userId=decodeData?.sub;
         }
 
@@ -21,3 +25,5 @@ const auth=async(req,res,next)=>{
         
     }
 }
+
+export default auth;
