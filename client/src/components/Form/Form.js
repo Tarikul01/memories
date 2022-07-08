@@ -7,7 +7,6 @@ import useStyles from './styles';
 
 const Form = ({currentId,setCurrentId}) => {
 	const [postData, setPostData] = useState({
-		creator: '',
 		title: '',
 		message: '',
 		tags: '',
@@ -17,6 +16,7 @@ const Form = ({currentId,setCurrentId}) => {
 
 	const classses = useStyles();
   const dispatch=useDispatch();
+  const user=JSON.parse(localStorage.getItem('profile'));
 
   useEffect(() => {
 	 if(post) setPostData(post)
@@ -25,9 +25,9 @@ const Form = ({currentId,setCurrentId}) => {
 	const handleSubmit = (e) => {
     e.preventDefault();
 	if(currentId){
-		dispatch(updatePost(currentId,postData));
+		dispatch(updatePost(currentId,{...postData,name:user?.result?.name}));
 	}else{
-    dispatch(createPost(postData));
+    dispatch(createPost({...postData,name:user?.result?.name}));
 	}
 	clear();
   
@@ -36,7 +36,6 @@ const Form = ({currentId,setCurrentId}) => {
 	const clear = () => {
 		setCurrentId(null);
 		setPostData({
-			creator: '',
 			title: '',
 			message: '',
 			tags: '',
@@ -45,6 +44,15 @@ const Form = ({currentId,setCurrentId}) => {
 
 
 	};
+	if(!user?.result?.name){
+		return(
+			<Paper className={classses.paper}>
+               <Typography variant="h6" align="center">
+			 Please Sign In to create your own memories and  like other's memories  
+			   </Typography>			
+			</Paper>
+		)
+	}
 	return (
 		<Paper  className={classses.paper}>
 			<form
@@ -53,17 +61,7 @@ const Form = ({currentId,setCurrentId}) => {
 				className={`${classses.root}${classses.form}`}
 				onSubmit={handleSubmit}>
 				<Typography variant='h6'>{currentId?"Editing":"Creating"} a Memory</Typography>
-				<TextField
-				 className={classses.fileInput}
-					name='creator'
-					variant='outlined'
-					label='Creator'
-					fullWidth
-					value={postData.creator}
-					onChange={(e) =>
-						setPostData({ ...postData, creator: e.target.value })
-					}
-				/>
+				
 				<TextField
 				
 				className={classses.fileInput}

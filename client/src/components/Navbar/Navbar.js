@@ -2,6 +2,7 @@ import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import memories from '../../images/memories.jpg';
+import decode from 'jwt-decode';
 import useStyles from './style';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -30,11 +31,15 @@ const Navbar = () => {
 	// useEffect for handle User login or  Store data in localStorage 
 	useEffect(() => {
 		const token= user?.token;
-        //   JWT......
-		console.log(token)
+        if(token){
+			const decodetoken=decode(token);
+			if(decodetoken.exp*1000<new Date().getTime()) Logout();
+
+
+		}
 
 		setUser(JSON.parse(localStorage.getItem('profile')));
-	}, [location,user]);
+	}, [location]);
 	return (
 		<AppBar className={classes.appBar} position='static' color='inherit'>
 			<div className={classes.brandContainer}>
