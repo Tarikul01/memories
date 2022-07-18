@@ -5,6 +5,7 @@ import {
 	CardContent,
 	CardMedia,
 	Typography,
+	ButtonBase
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -14,10 +15,12 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts';
 import useStyles from './styles';
+import {useNavigate} from 'react-router-dom'
 
 const Post = ({ post, setCurrentId }) => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
+	const navigate=useNavigate();
 	const user = JSON.parse(localStorage.getItem('profile'));
 
 	const Likes = () => {
@@ -48,8 +51,16 @@ const Post = ({ post, setCurrentId }) => {
 			</div>
 		);
 	};
+	const openPosts=()=>{
+		navigate(`/posts/${post._id}`)
+
+	}
 	return (
-		<Card className={classes.card}>
+		<Card className={classes.card} >
+		
+		
+		
+		
 			<CardMedia
 				className={classes.media}
 				image={`img/${post.selectedFile}`}
@@ -74,20 +85,24 @@ const Post = ({ post, setCurrentId }) => {
 					</Button>
 				)}
 			</div>
+			
 			<div className={classes.details}>
 				<Typography variant='body2' color='textSecondary'>
 					{post.tags.map((tag) => `#${tag}`)}
 				</Typography>
 			</div>
+			<ButtonBase className={classes.cardActions} onClick={openPosts}>
 			<Typography className={classes.title} variant='h5' gutterBottom>
 				{post.title}
 			</Typography>
+			</ButtonBase>
 
 			<CardContent>
 				<Typography variant='body2' color='textSecondary' component='p'>
 					{post.message}
 				</Typography>
 			</CardContent>
+			
 			<CardActions className={classes.cardActions}>
 				<Button
 					size='small'
