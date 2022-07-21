@@ -5,7 +5,6 @@ import {
 	CardContent,
 	CardMedia,
 	Typography,
-	ButtonBase
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -56,7 +55,7 @@ const Post = ({ post, setCurrentId }) => {
 
 	}
 	return (
-		<Card className={classes.card} >
+		<Card className={classes.card}  >
 		
 		
 		
@@ -65,6 +64,7 @@ const Post = ({ post, setCurrentId }) => {
 				className={classes.media}
 				image={`img/${post.selectedFile}`}
 				title={post.title}
+				style={{cursor:'pointer'}}  onClick={openPosts}
 			/>
 			<div className={classes.overlay}>
 				<Typography variant='h6'>{post.name}</Typography>
@@ -91,11 +91,10 @@ const Post = ({ post, setCurrentId }) => {
 					{post.tags.map((tag) => `#${tag}`)}
 				</Typography>
 			</div>
-			<ButtonBase className={classes.cardActions} onClick={openPosts}>
+			
 			<Typography className={classes.title} variant='h5' gutterBottom>
 				{post.title}
 			</Typography>
-			</ButtonBase>
 
 			<CardContent>
 				<Typography variant='body2' color='textSecondary' component='p'>
