@@ -31,6 +31,7 @@ export const fetchPost=(id)=> API.get(`/posts/${id}`);
  export const updatePost=(id,updatePost)=>API.patch(`/posts/${id}`,updatePost)
  export const deletePost=(id)=>API.delete(`/posts/${id}`);
  export const updateLike=(id)=>API.patch(`/posts/${id}/likeCount`);
+ export const comment=(value,id)=>API.post()
 
 
 

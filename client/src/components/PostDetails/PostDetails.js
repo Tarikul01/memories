@@ -5,6 +5,7 @@ import {
 	Typography,
 } from '@material-ui/core';
 import moment from 'moment';
+import CommentSection from './CommentSection';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -69,9 +70,7 @@ const PostDetails = () => {
 						<strong>Realtime Chat comming - soon !.....</strong>
 					</Typography>
 					<Divider style={{ margin: '20px 0' }} />
-					<Typography variant='body1'>
-						<strong>Comments - comming soon!</strong>
-					</Typography>
+					<CommentSection post={post}/>
 					<Divider style={{ margin: '20px 0' }} />
 				</div>
 				<div className={classes.imageSection}>

@@ -31,5 +31,14 @@ export default makeStyles((theme)=>({
         [theme.breakpoints.down('sm')]:{
             flexDirection:'column',
         }
+    },
+    commentsOuterContainer:{
+        display:'flex',
+        justifyContent:'space-between',
+    },
+    commentsInnerContainer:{
+        height:'200px',
+        overflow:'auto',
+        margin:'30px',
     }
 }))
