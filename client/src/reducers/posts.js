@@ -33,6 +33,16 @@ const posts= (state ={posts:[],isLoading:true}, action) => {
 			return {...state,posts:state.posts.filter((post) => post._id !== action.payload)} ;
 		case 'CREATE':
 				return {...state,posts:[...state.posts, action.payload]};
+		case 'COMMENT':
+			return{
+			...state,
+			posts:state.posts.map((post)=>{
+				if(post._id===action.payload._id){
+					return action.payload;
+				}
+				return post;
+			})
+		};
 
 
 		
